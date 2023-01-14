@@ -7,7 +7,16 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "annyang": "^2.6.1",
     "core-js": "^3.6.5",
+    "lang-detector": "^1.0.6",
+    "language-detector": "^1.0.1",
+    "languagedetect": "^2.0.0",
+    "node-fetch": "^3.3.0",
+    "openai": "^3.1.0",
+    "responsivevoice": "^0.4.1",
+    "say": "^0.16.0",
+    "socket.io-client": "^4.5.4",
     "vue": "^2.6.11"
   },
   "devDependencies": {

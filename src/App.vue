@@ -1,28 +1,26 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <VoiceRecognition v-if="false"/>
+    <VoiceAssembly v-if="false" />
+    <VoiceSpeech />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import VoiceRecognition from './components/VoiceRecognition.vue'
+import VoiceAssembly from './components/VoiceAssembly'
+import VoiceSpeech from './components/VoiceSpeech'
 export default {
   name: 'App',
   components: {
-    HelloWorld
+    VoiceRecognition,
+    VoiceAssembly,
+    VoiceSpeech
+  },
+  data() {
+    return {
+      texto: 'HOla'
+    }
   }
 }
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
