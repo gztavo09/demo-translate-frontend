@@ -40,7 +40,7 @@ export default {
         const config = {
             headers: { 
                 'Content-Type': 'application/json',
-                Authorization: `Bearer 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` 
+                Authorization: `Bearer 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` 
             }
         };
 

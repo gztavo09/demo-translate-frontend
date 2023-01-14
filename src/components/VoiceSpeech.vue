@@ -50,7 +50,8 @@ export default {
         recordedText: '',
         convertedText: '',
         language: '',
-        selectLang: 'en-US'
+        selectLang: 'en-US',
+        id: 0
     }
   },
   methods: {
@@ -73,7 +74,7 @@ export default {
         const config = {
             headers: { 
                 'Content-Type': 'application/json',
-                Authorization: `Bearer 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` 
+                Authorization: `Bearer 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` 
             }
         };
 
@@ -83,7 +84,11 @@ export default {
         ).then((response) => {
             let new_text = response.data.choices[0].text.replaceAll("\n", "")
             this.convertedText = new_text
-            socket.emit('send message', new_text);
+            socket.emit('send message', {
+                id: this.id,
+                text: new_text
+              }
+            );
             
         });
     },
@@ -137,10 +142,15 @@ export default {
     }
   },
   mounted() {
-    socket.on('new message', message => {
-      console.log(1, message);
-      this.speak(message)
+    socket.on('new message', value => {
+      if(value.id != this.id) {
+        console.log(1, value);
+        this.speak(value.text)
+      }
     });
+  },
+  created() {
+    this.id = Date.now()
   }
 }
 </script>
